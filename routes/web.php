@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,12 @@ use App\Http\Controllers\Frontend\FrontendController;
 //     return view('welcome');
 // });
 Route::get('/',[FrontendController::class,'index']);
+Route::get('categorry',[FrontendController::class,'category']);
+Route::get('view-category/{slug}',[FrontendController::class,'viewcategory']);
+Route::get('category/{cate_slug}/{prod_slug}',[FrontendController::class,'productview']);
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
